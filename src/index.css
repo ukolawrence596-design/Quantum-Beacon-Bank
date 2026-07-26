@@ -1,0 +1,193 @@
+@import "./styles/themes.css";
+@import "./styles/animations.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: "Inter", sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    line-height: 1.2;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+  }
+
+  input,
+  textarea,
+  select {
+    outline: none;
+    font-family: inherit;
+  }
+}
+
+@layer components {
+  /* Container */
+  .container-custom {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* Section padding */
+  .section-padding {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  @media (min-width: 1024px) {
+    .section-padding {
+      padding-top: 7rem;
+      padding-bottom: 7rem;
+    }
+  }
+
+  /* Primary button */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.75rem;
+    background-color: #ccff00;
+    color: #0d0d0d;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-radius: 9999px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+
+  .btn-primary:hover {
+    background-color: #b8e600;
+    box-shadow: 0 0 20px rgba(204, 255, 0, 0.4);
+    transform: translateY(-1px);
+  }
+  /* Secondary button */
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.75rem;
+    background-color: transparent;
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-radius: 9999px;
+    border: 1px solid var(--border-primary);
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+    transform: translateY(-1px);
+  }
+
+  /* Card */
+  .card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-primary);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-card);
+    transition: all 0.3s ease;
+  }
+
+  .card:hover {
+    border-color: var(--border-accent);
+    box-shadow: var(--shadow-elevated);
+    transform: translateY(-2px);
+  }
+
+  /* Input */
+  .input-field {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background-color: var(--bg-input);
+    border: 1px solid var(--border-primary);
+    border-radius: 9999px;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+  }
+
+  .input-field::placeholder {
+    color: var(--text-muted);
+  }
+
+  .input-field:focus {
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 3px var(--accent-muted);
+  }
+
+  /* Section heading accent */
+  .heading-accent {
+    color: var(--accent-primary);
+  }
+
+  /* Dot pattern background */
+  .dot-pattern {
+    background-image: radial-gradient(
+      circle,
+      var(--accent-primary) 1px,
+      transparent 1px
+    );
+    background-size: 20px 20px;
+    opacity: 0.15;
+  }
+
+  /* Glass card effect */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1rem;
+  }
+}
