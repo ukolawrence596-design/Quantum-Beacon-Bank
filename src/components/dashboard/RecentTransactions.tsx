@@ -1,4 +1,5 @@
-import TransactionItem, { Transaction } from "./TransactionItem";
+import TransactionItem from "./TransactionItem";
+import type { Transaction } from "./TransactionItem";
 
 export interface RecentTransactionsProps {
   transactions: Transaction[];
@@ -14,10 +15,17 @@ export default function RecentTransactions({
   return (
     <div className="rounded-3xl p-6 bg-[var(--bg-elevated)] border border-[var(--border-primary)]">
       <div className="flex items-center justify-between mb-6">
-        <h3 className="text-lg font-heading font-bold" style={{ color: "var(--text-primary)" }}>
+        <h3
+          className="text-lg font-heading font-bold"
+          style={{ color: "var(--text-primary)" }}
+        >
           Recent Transactions
         </h3>
-        <span className="text-xs font-semibold" style={{ color: "var(--text-secondary)" }}>
+
+        <span
+          className="text-xs font-semibold"
+          style={{ color: "var(--text-secondary)" }}
+        >
           Latest activity
         </span>
       </div>
@@ -25,16 +33,26 @@ export default function RecentTransactions({
       {loading ? (
         <div className="space-y-3">
           {[1, 2, 3].map((index) => (
-            <div key={index} className="h-16 rounded-xl bg-[var(--bg-input)] animate-pulse" />
+            <div
+              key={index}
+              className="h-16 rounded-xl bg-[var(--bg-input)] animate-pulse"
+            />
           ))}
         </div>
       ) : transactions.length === 0 ? (
         <div className="py-12 text-center">
-          <p className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>
+          <p
+            className="text-sm font-semibold"
+            style={{ color: "var(--text-primary)" }}
+          >
             No recent transactions
           </p>
-          <p className="mt-2 text-xs" style={{ color: "var(--text-secondary)" }}>
-            Your banking activity will show up here.
+
+          <p
+            className="mt-2 text-xs"
+            style={{ color: "var(--text-secondary)" }}
+          >
+            Your banking activity will appear here once transactions are made.
           </p>
         </div>
       ) : (

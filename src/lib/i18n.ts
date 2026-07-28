@@ -12,24 +12,29 @@ void i18n
   .init({
     supportedLngs: supportedLanguages,
     fallbackLng: "en",
+    lng: "en",
+
     debug: import.meta.env.DEV,
+
     ns: ["translation"],
     defaultNS: "translation",
+
     backend: {
       loadPath: "/locales/{{lng}}.json",
     },
+
     detection: {
-      order: ["localStorage", "navigator", "htmlTag", "path", "subdomain"],
+      order: ["localStorage", "navigator", "htmlTag"],
       caches: ["localStorage"],
       lookupLocalStorage: "qbb-language",
-      checkWhitelist: true,
     },
-    react: {
-      useSuspense: false,
-      wait: false,
-    },
+
     interpolation: {
       escapeValue: false,
+    },
+
+    react: {
+      useSuspense: false,
     },
   });
 
